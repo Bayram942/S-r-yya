@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Mart Sürprizi</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background 1s;
+        }
+        .container {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1, p {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s, transform 1s;
+        }
+        .show {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            background: #ff4081;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background: #e91e63;
+        }
+        .nav-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            background: #ff758c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 25px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .nav-btn:hover {
+            background: #ff8aa0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="start-screen">
+        <h1>Sürəyya, bu səhifə sənə özəl bir sürpriz üçün hazırlanıb... ✨</h1>
+        <button class="btn" onclick="startSurprise()">Bura toxun sürəyya xanım</button>
+    </div>
+    
+    <div id="surprise" class="container">
+        <h1 id="step1">Salam Sürəyya, 8 Mart günün mübarək olsun!... 🌸</h1>
+        <button class="nav-btn" onclick="showStep(2)">Davamı üçün buraya bas</button>
+        
+        <h1 id="step2">Çəkdiyin şəkillərdən də gözəl və zərifsən... ☀️</h1>
+        <button class="nav-btn" onclick="showStep(3)">Növbəti</button>
+        
+        <h1 id="step3">Bu gününü dəyərləndir, çünki hər an özünəməxsus və dəyərlidir... 💖</h1>
+        <button class="nav-btn" onclick="showStep(4)">sonuncudu narahat olma 😂</button>
+        
+        <h1 id="final">Sürəyya, 8 Martın mübarək! Yəqinki bəyəndin?🙂 💐</h1>
+    </div>
+    
+    <script>
+        function startSurprise() {
+            document.getElementById('start-screen').style.display = 'none';
+            document.body.style.background = '#ff758c';
+            let surpriseDiv = document.getElementById('surprise');
+            surpriseDiv.style.display = 'flex';
+            setTimeout(() => document.getElementById('step1').classList.add('show'), 1000);
+        }
+        function showStep(step) {
+            if (step === 2) {
+                document.getElementById('step2').classList.add('show');
+                document.getElementById('step1').style.opacity = '0.3';
+            } else if (step === 3) {
+                document.getElementById('step3').classList.add('show');
+                document.getElementById('step2').style.opacity = '0.3';
+            } else if (step === 4) {
+                document.getElementById('final').classList.add('show');
+                document.getElementById('step3').style.opacity = '0.3';
+            }
+        }
+    </script>
+</body>
+</html>
